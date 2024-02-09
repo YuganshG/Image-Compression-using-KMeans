@@ -29,7 +29,7 @@ KMeans algorithm is used to select 16 colors that will be used to represent the 
 
 
 ## License <a name="license"></a>
-This project is licensed under the GNU General Public License v3.0 - see the [LICENSE]() file for details.
+This project is licensed under the GNU General Public License v3.0 - see the [LICENSE](https://github.com/YuganshG/Image-Compression-using-KMeans/blob/main/LICENSE) file for details.
 
 ## Support & Contact <a name="support-contact"></a>
 If you encounter any issues, have questions or just want to chat about machine learning? Feel free to [email](yugansh.goyal101@gmail.com) me or connect with me on [LinkedIn](https://www.linkedin.com/in/yuganshgoyal/).
