@@ -3,14 +3,25 @@
 ## About <a name="about"></a>
 
 
+## Directory Structure <a name="directory-structure"></a>
+
+```
+├── input_image/                              <- Folder for input image
+├── compressed_image/                         <- Folder for compressed image
+├── Image Compression using KMeans.ipynb/     <- Source code for the project
+├── LICENSE                                   <- Project's License
+├── README.md                                 <- The top-level README for developers using this project
+```
+
 ## Table of Contents <a name="table-of-contents"></a>
 
 1. [About](#about)
-2. [Table of Contents](#table-of-contents)
-3. [Background & Approach](#background)
-4. [Results](#results)
-5. [License](#license)
-6. [Support & Contact](#support-contact)
+2. [Directory Structure](#directory-structure)
+3. [Table of Contents](#table-of-contents)
+4. [Background & Approach](#background)
+5. [Results](#results)
+6. [License](#license)
+7. [Support & Contact](#support-contact)
 
 
 ## Background & Approach: <a name="background"></a>
