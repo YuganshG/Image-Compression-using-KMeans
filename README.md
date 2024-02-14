@@ -9,6 +9,7 @@
 ├── input_image/                              <- Folder for input image
 ├── compressed_image/                         <- Folder for compressed image
 ├── Image Compression using KMeans.ipynb/     <- Source code for the project
+├── snapshots                                 <- Project's results on sample image
 ├── LICENSE                                   <- Project's License
 ├── README.md                                 <- The top-level README for developers using this project
 ```
@@ -30,13 +31,19 @@
 
 ### Approach:
 
-8-bit images can contain thousands of colors. Here, the idea is to represent those images with just 16 colors The number of colors used to represent the image is a tradeoff between the compressed image quality and its size
+8-bit images can contain thousands of colors. Here, the idea is to represent those images with just 16 colors. The number of colors used to represent the image is a tradeoff between the compressed image quality and its size.
 
-By making this reduction, it is possible to represent and store an image in an efficient way. Because instead of storing all those thousands of colors, all that would be needed to be stored after compression is the list of those selected 16 RGB colors and a list that maps each pixel in the image to the corresponding index of 16 selected colors Note that only 4 bits are necessary to represent 16 possibilities
+By making this reduction, it is possible to represent and store an image in an efficient way. Because instead of storing all those thousands of colors, all that would be needed to be stored after compression is the list of those selected 16 RGB colors and a list that maps each pixel in the image to the corresponding index of 16 selected colors. Note that only 4 bits are necessary to represent 16 possibilities
 
 ### How are those 16 colors chosen?
 
 KMeans algorithm is used to select 16 colors that will be used to represent the compressed image. Each pixel in the original image is treated as a data sample and then using K-Means to find the 16 colors that best group (cluster) the pixels in the 3- dimensional RGB space. Once the cluster centroids have been found, then those centroids (16 colors) are used to replace the pixels in the original image
+
+
+## Results <a name="results"></a>
+
+<img width="629" alt="visual-results" src="https://github.com/YuganshG/Image-Compression-using-KMeans/assets/34838617/03ed780b-2f0e-4dad-b69c-2e6ff334e762">
+<img width="490" alt="evaluation_results" src="https://github.com/YuganshG/Image-Compression-using-KMeans/assets/34838617/6722f542-2a8b-4bc1-bb35-24775468f44d">
 
 
 ## License <a name="license"></a>
