@@ -6,7 +6,7 @@
 ## Directory Structure <a name="directory-structure"></a>
 
 ```
-├── input_image/                              <- Folder for input image
+├── input_image/                              <- Folder for input image in png format
 ├── compressed_image/                         <- Folder for compressed image
 ├── Image Compression using KMeans.ipynb/     <- Source code for the project
 ├── snapshots                                 <- Project's results on sample image
@@ -27,17 +27,22 @@
 
 ## Background & Approach: <a name="background"></a>
 
-24-bit RGB images are images in which each pixel is represented by three 8-bit unsigned integers (thus, 24 bits total) (ranging from 0 to 255) specifying the intensities of red, green, and blue that form the color for the pixel.
+24-bit RGB images consist of pixels, each represented by three 8-bit unsigned integers, totaling 24 bits. These integers range from 0 to 255 and denote the intensities of red, green, and blue, which collectively determine the color of the pixel.
 
 ### Approach:
 
-8-bit images can contain thousands of colors. Here, the idea is to represent those images with just 16 colors. The number of colors used to represent the image is a tradeoff between the compressed image quality and its size.
+These 24-bit images can contain thousands of colors. The idea is to reduce the color depth of 24-bit images to a mere 16 colors. This approach seeks to strike a balance between preserving image quality and minimizing file size, thereby exploring the tradeoff inherent in compressing image data.
 
-By making this reduction, it is possible to represent and store an image in an efficient way. Because instead of storing all those thousands of colors, all that would be needed to be stored after compression is the list of those selected 16 RGB colors and a list that maps each pixel in the image to the corresponding index of 16 selected colors. Note that only 4 bits are necessary to represent 16 possibilities
+This reduction enables efficient image representation and storage. Instead of storing thousands of colors, only a list of 16 selected RGB colors and a mapping of each pixel to the corresponding index of these colors need to be saved post-compression. Remarkably, merely 4 bits are required to represent the 16 possibilities, drastically reducing the storage footprint.
+
+To overcome the limitation of Python where atomicity is 1 byte, a workaround was implemented. Since it's not possible to store 4 bits directly, they were merged to form 1 byte. Later, during the separation process, these bytes were divided back into their constituent 4 bits. This approach facilitated the handling of the compressed data efficiently within the Python environment.
+
+Work was also undertaken to support PNG format due to its lossless nature. Unlike JPEG, which is lossy, saving the compressed image as JPEG would risk losing the indices. Therefore, saving the color map as PNG was adopted to preserve all the necessary information. Consequently, the input image was also required to be in PNG format for accurate comparison since JPEG compression might alter the image data.
+
 
 ### How are those 16 colors chosen?
 
-KMeans algorithm is used to select 16 colors that will be used to represent the compressed image. Each pixel in the original image is treated as a data sample and then using K-Means to find the 16 colors that best group (cluster) the pixels in the 3- dimensional RGB space. Once the cluster centroids have been found, then those centroids (16 colors) are used to replace the pixels in the original image
+The KMeans algorithm is employed to select 16 representative colors for compressing the image. Each pixel in the original image is treated as a data sample, and K-Means is utilized to identify 16 colors that effectively group (cluster) the pixels in the 3-dimensional RGB space. Subsequently, these cluster centroids, serving as the 16 chosen colors, are used to substitute the pixels in the original image, facilitating compression.
 
 
 ## Results <a name="results"></a>
