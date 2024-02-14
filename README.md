@@ -1,7 +1,7 @@
 # K-Compress: Image Compression using K-Means
 
 ## About <a name="about"></a>
-
+This project presents an innovative application of the KMeans algorithm for image compression. It offers a method to efficiently compress 24-bit RGB images into a concise representation of just 16 colors, effectively balancing image quality with storage efficiency. By reducing color depth, the project minimizes file size while preserving essential visual information.
 
 ## Directory Structure <a name="directory-structure"></a>
 
